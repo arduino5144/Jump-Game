@@ -3,13 +3,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da31d7d4-82a0-41d1-b209-74f92d573264</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>MyTest.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>Main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>MyTest</Name>
+    <Name>JumpGame</Name>
     <RootNamespace>MyTest</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -21,7 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MyTest.py" />
+    <Compile Include="Main.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="leo_pyx.pyxel" />
