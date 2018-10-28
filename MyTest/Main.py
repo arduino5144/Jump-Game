@@ -9,20 +9,42 @@ class App:
         pyxel.play(0, 0, loop=True)
         self.tilemap = pyxel.tilemap(0)
         print(self.tilemap.width)
-        print(self.tilemap.height)
-        self.x = 0
-        self.player_x = 10
-        self.player_y = 100
+        self.bg_start = 0
+        self.player_x = 8
+        self.player_y = 64
         pyxel.run(self.update, self.draw)
 
     def update(self):
-        self.x = (self.x + 1) % pyxel.width
+        self.update_player()   
+        if self.bg_start > 12:
+           self.bg_start = 12
+        if self.bg_start < 0:
+            self.bg_start = 0
+
+    def update_player(self):
+         if pyxel.btn(pyxel.KEY_LEFT):
+            self.player_x = max(self.player_x - 2, 0)
+            if self.player_x <= 40:
+               self.bg_start -= 1
+
+         if pyxel.btn(pyxel.KEY_RIGHT):
+             self.player_x = min(self.player_x + 2, pyxel.width - 16)
+             if self.player_x > 40:
+               self.bg_start += 1
 
     def draw(self):
-        # pyxel.cls(0)
-        pyxel.rect(self.x, 0, self.x + 7, 7, 9)
-        pyxel.bltm(10, 10, 0, 0, 0, 0, 256, 256)
+        pyxel.cls(0)
         
+        pyxel.bltm(0, # x
+                   0, # y
+                   0, # image
+                   0, # tilemap
+                   self.bg_start,  # tilemap start x position
+                   0,  # tilemap start y
+                   20, # tilemap width
+                   15  # tilemap height
+                   )
+
         # draw player
         pyxel.blt(
             self.player_x,
